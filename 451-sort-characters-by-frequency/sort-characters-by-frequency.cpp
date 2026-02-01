@@ -5,7 +5,7 @@ public:
         for (char c : s) {
             freq[c]++;
         }
-        vector<vector<char>> buckets(s.length() + 2);
+        vector<vector<char>> buckets(s.length() + 1);
         for (auto& [ch, count] : freq) {
             buckets[count].push_back(ch);
         }
