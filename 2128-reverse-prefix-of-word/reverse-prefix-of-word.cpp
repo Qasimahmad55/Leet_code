@@ -1,13 +1,28 @@
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
-        int index = word.find(ch);
+        // Find the first occurrence of ch
+        int index = -1;
+        for (int i = 0; i < word.length(); i++) {
+            if (word[i] == ch) {
+                index = i;
+                break;
+            }
+        }
         
-        if (index == string::npos) {
+        // If ch not found, return original string
+        if (index == -1) {
             return word;
         }
         
-        reverse(word.begin(), word.begin() + index + 1);
+        // Reverse from 0 to index using two pointers
+        int left = 0;
+        int right = index;
+        while (left < right) {
+            swap(word[left], word[right]);
+            left++;
+            right--;
+        }
         
         return word;
     }
