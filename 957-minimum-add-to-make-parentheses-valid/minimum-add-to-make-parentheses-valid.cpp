@@ -1,20 +1,21 @@
 class Solution {
 public:
     int minAddToMakeValid(string s) {
-        stack<char> st;
-        
+        int open = 0;
+        int close = 0;
+
         for (char c : s) {
             if (c == '(') {
-                st.push(c);
-            } else {  // c == ')'
-                if (!st.empty() && st.top() == '(') {
-                    st.pop();  // Matched pair
+                open++;
+            } else {
+                if (open > 0) {
+                    open--;
                 } else {
-                    st.push(c);  // Unmatched ')'
+                    close++;
                 }
             }
         }
-        
-        return st.size();  // Remaining unmatched parentheses
+
+        return open + close;
     }
 };
