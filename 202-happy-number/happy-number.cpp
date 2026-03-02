@@ -14,7 +14,7 @@ public:
         int slow = n;
         int fast = sumOfSquares(n);
         
-        while (fast != 3 && slow != fast) {
+        while (fast != 1 && slow != fast) {
             slow = sumOfSquares(slow);
             fast = sumOfSquares(sumOfSquares(fast));
         }
