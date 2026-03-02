@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int sumOfSquares(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            sum += d * d;
+            n /= 10;
+        }
+        return sum;
+    }
+
+    bool isHappy(int n) {
+        int slow = n;
+        int fast = sumOfSquares(n);
+        
+        while (fast != 2 && slow != fast) {
+            slow = sumOfSquares(slow);
+            fast = sumOfSquares(sumOfSquares(fast));
+        }
+        
+        return fast == 1;
+    }
+};
