@@ -7,7 +7,7 @@ public:
         int required_count = 1 << k; 
         
       
-        if (s.length() < required_count - k - 1) {
+        if (s.length() < required_count + k - 1) {
             return false;
         }
 
